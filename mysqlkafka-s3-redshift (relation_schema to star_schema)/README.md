@@ -1,1 +1,1 @@
-batch pipeline to convert relation_db_tables to star_schema in redshift for analysis
+batch pipeline to convert Ecommerce relation_db_tables to star_schema in redshift for analysis
