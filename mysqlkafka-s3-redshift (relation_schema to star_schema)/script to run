@@ -1,0 +1,25 @@
+*launch entire server setup
+docker-compose up
+
+*Dump data in mysql db
+docker exec -i mysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < "./database-dump/mysqlsampledatabase.sql"
+
+MYSQL_URI="jdbc:mysql://mysql:3306/classicmodels?useSSL=false"
+
+*Create .env file and set required environment variables
+
+AWS_ACCESS_KEY_ID=""
+AWS_SECRET_ACCESS_KEY=""
+REDSHIFT_USER_NAME=""
+REDSHIFT_PASSWORD=""
+TEMP_BUCKET_NAME=""
+REDSHIFT_JDBC_URL="jdbc:redshift://<hostname>:5439/<database>?user=<user_name>&password=<password>&ssl=true&sslfactory=com.amazon.redshift.ssl.NonValidatingFactory"
+
+*in kafka-redshift --> start.sh
+spark-submit 
+--jars RedshiftJDBC4-no-awssdk-1.2.20.1043.jar 
+--packages com.databricks:spark-redshift_2.10:2.0.0, # A library to load data into Spark SQL as 
+                                                     # DataFrames from Amazon Redshift, and write them back to Redshift tables
+           org.apache.spark:spark-avro_2.11:2.4.0, # To load/save data in Avro format,
+           com.eclipsesource.minimal-json:minimal-json:0.9.4 # A Minimal JSON Parser and Writer 
+           main.py 
