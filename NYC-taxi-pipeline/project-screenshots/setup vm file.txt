@@ -1,0 +1,11 @@
+Commands for VM
+1) sudo apt-get update
+2) sudo apt-get install python3-distutils
+3) sudo apt-get install python3-apt
+4) sudo apt-get install wget
+5) wget https://bootstrap.pypa.io/get-pip.py
+6) sudo python3 get-pip.py
+7) sudo pip3 install mage-ai
+8) sudo pip3 install pandas
+9) sudo pip3 install google-cloud
+10) sudo pip3 install google-cloud-bigquery
