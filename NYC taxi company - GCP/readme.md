@@ -17,7 +17,7 @@ This project aims to securely manage, streamline, and perform analysis on the st
 
 ## Services we will be using
 1. GCP Cloud Storage - GCP's highly scalable & durable data lake storage 
-2. GCP VM - orchestration tool to create pipeline to co-ordinate data ingestion and data transformation components
+2. GCP Compute Engine VM - orchestration tool to create pipeline to co-ordinate data ingestion and data transformation components
 3. Mage - Modern orchestration and ETL tool hosted on GCP VM
 4. GCP BigQuery - Serverless GCP DataWareHouse Service which contains fact and dimension table 
 5. Dashboarding tool - PowerBI, Looker, etc connects to GCP BigQuery
