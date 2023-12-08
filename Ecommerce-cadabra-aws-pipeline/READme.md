@@ -13,7 +13,7 @@ This project aims to securely manage, store, and perform analysis on the structu
 
 <h2>Architecture Diagram</h2>
 
-![aws pipeline](https://github.com/Dipeshgandhi131/Bigdata_projects/assets/91051383/0d396f1c-512f-4341-9b09-ff6658cb7eb0)
+![Screenshot (1034)](https://github.com/Dipeshgandhi131/Bigdata_projects/assets/91051383/5ebc8786-020b-41d0-acfb-8690bea6c9c3)
 
 ## Services we will be using
 1. EC2 - Compute that generates Server logs for ecommerce-cadabra backend server
