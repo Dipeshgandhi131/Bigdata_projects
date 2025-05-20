@@ -17,7 +17,7 @@ def hello_http(request):
         Response object using `make_response`
         <https://flask.palletsprojects.com/en/1.1.x/api/#flask.make_response>.
     """
-    bucket_name = 'data_from_spotify'  # Replace with your GCS bucket name
+    bucket_name = 'data-from-spotify'  # Replace with your GCS bucket name
     directory_path = 'raw_data/to_processed/'  # Replace with the directory path you want to list
     a=[]
     try:
@@ -28,7 +28,7 @@ def hello_http(request):
         logging.error(f"An error occurred: {str(e)}")
     
     spotify_data=[]
-    for file_name in a[1:]:
+    for file_name in a:
         data = read_data_from_file(bucket_name, file_name)
         if data is not None:
             spotify_data.append(data)
@@ -69,7 +69,7 @@ def hello_http(request):
     blob = bucket.blob('transformed/album_data/'+filename)
     blob.upload_from_string(album_csv_data, content_type='text/csv')
     
-    for file_name in a[1:]:
+    for file_name in a:
         result = copy_and_delete_data(bucket_name, 'raw_data/to_processed', 'raw_data/processed', file_name.split('/')[-1])
         if result.startswith('Error'):
             return result, 500

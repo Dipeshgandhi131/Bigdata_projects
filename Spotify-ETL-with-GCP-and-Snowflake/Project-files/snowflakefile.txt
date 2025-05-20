@@ -2,12 +2,12 @@ CREATE or REPLACE STORAGE INTEGRATION my_gcs_integration
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = GCS
   ENABLED = TRUE
-  STORAGE_ALLOWED_LOCATIONS = ('gcs://data_from_spotify/');
+  STORAGE_ALLOWED_LOCATIONS = ('gcs://data-from-spotify/');
 
 DESC INTEGRATION my_gcs_integration
 
-create or REPLACE  stage MY_GCP
-URL = 'gcs://data_from_spotify/'
+create or REPLACE stage MY_GCP
+URL = 'gcs://data-from-spotify/'
 STORAGE_INTEGRATION = my_gcs_integration  
 
 LIST @MY_GCP;
@@ -37,13 +37,13 @@ CREATE OR REPLACE TABLE tblalbum (
     album_total_tracks INT,
     album_url STRING
 );
+
 -- Load data from the GCS folder into a Snowflake table
 COPY INTO tblalbum
 FROM @MY_GCP/transformed/album_data/
 FILE_FORMAT = (FORMAT_NAME = readcsv);
 
 select count(*) from tblalbum;
-
 
 -- Create a table in Snowflake
 CREATE OR REPLACE TABLE tblartist (
